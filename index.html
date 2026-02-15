@@ -115,6 +115,12 @@
             font-size: 14px;
             font-weight: 600;
             color: #D84545;
+        }
+        
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 10px;
         }
         
@@ -135,23 +141,34 @@
             display: flex;
             gap: 6px;
             margin-bottom: 12px;
+            align-items: center;
         }
         
         .desc-row input, .location-row input {
             flex: 1;
             margin-bottom: 0;
+            height: 44px;
         }
         
         .copy-btn-small {
-            padding: 10px 12px;
+            padding: 12px 14px;
             background: #F0F0F0;
             border: none;
             border-radius: 8px;
-            color: #059669;
-            font-size: 12px;
-            font-weight: 600;
+            color: #D84545;
+            font-size: 11px;
+            font-weight: 500;
             cursor: pointer;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .copy-btn-small span {
+            color: #666;
+            font-size: 10px;
+            font-weight: 400;
         }
         
         .copy-btn-small:active { background: #E5E5E5; }
@@ -418,6 +435,71 @@
             transform: translateY(100%);
         }
         
+        /* SECTIONS D'INFORMATIONS */
+        .info-section {
+            background: white;
+            margin: 12px;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .info-section label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #D84545;
+            margin-bottom: 10px;
+        }
+        
+        .info-section textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 1px solid #E5E5E5;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: #F8F8F8;
+            resize: vertical;
+        }
+        
+        .info-section textarea:focus {
+            outline: none;
+            border-color: #D84545;
+            background: white;
+        }
+        
+        .info-section input[type="email"],
+        .info-section input[type="text"],
+        .info-section input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E5E5E5;
+            border-radius: 10px;
+            font-size: 15px;
+            background: #F8F8F8;
+            height: 44px;
+            box-sizing: border-box;
+        }
+        
+        .info-section input:focus {
+            outline: none;
+            border-color: #D84545;
+            background: white;
+        }
+        
+        .personal-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .personal-info-grid input:nth-child(3),
+        .personal-info-grid input:nth-child(8) {
+            grid-column: 1 / -1;
+        }
+        
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -449,7 +531,7 @@
         
         .action-buttons {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 6px;
         }
         
@@ -476,6 +558,11 @@
         .btn-clear {
             background: linear-gradient(135deg, #FF3B30 0%, #D84545 100%);
             box-shadow: 0 2px 6px rgba(255, 59, 48, 0.2);
+        }
+        
+        .btn-pdf {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            box-shadow: 0 2px 6px rgba(139, 92, 246, 0.2);
         }
         
         .action-btn:active { transform: scale(0.97); }
@@ -506,6 +593,36 @@
             flex-shrink: 0;
         }
         .add-client-btn:active { opacity: 0.7; }
+        
+        /* Bouton ajouter client discret en bas */
+        .add-client-line-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            background: transparent;
+            border: 1px dashed #E5E5E5;
+            border-radius: 8px;
+            color: #8E8E93;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .add-client-line-btn span {
+            color: #D84545;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .add-client-line-btn:active {
+            background: #F8F8F8;
+            border-color: #D84545;
+        }
         
         /* CALENDRIER */
         .calendar-section {
@@ -590,1012 +707,4 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: center;
-        }
-        
-        .time-picker-modal {
-            background: #1C1C1E;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 320px;
-            overflow: hidden;
-        }
-        
-        .time-picker-header {
-            background: #2C2C2E;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .time-picker-header span {
-            font-size: 42px;
-            font-weight: 300;
-            color: #F5F5F5;
-            letter-spacing: 3px;
-        }
-        
-        .time-picker-mode {
-            display: flex;
-            background: #2C2C2E;
-            padding: 0 12px 12px 12px;
-            gap: 8px;
-        }
-        
-        .mode-btn {
-            flex: 1;
-            padding: 10px;
-            background: transparent;
-            border: 1px solid #3A3A3C;
-            color: #8E8E93;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .mode-btn.active {
-            background: #D84545;
-            border-color: #D84545;
-            color: white;
-        }
-        
-        .time-picker-body {
-            padding: 20px 12px;
-            background: #1C1C1E;
-        }
-        
-        .time-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 8px;
-        }
-        
-        .time-number {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #2C2C2E;
-            border: 1px solid #3A3A3C;
-            border-radius: 8px;
-            color: #F5F5F5;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            user-select: none;
-        }
-        
-        .time-number:active {
-            background: #3A3A3C;
-        }
-        
-        .time-number.selected {
-            background: #D84545;
-            border-color: #D84545;
-            color: white;
-        }
-        
-        .time-picker-actions {
-            display: flex;
-            border-top: 1px solid #3A3A3C;
-        }
-        
-        .time-picker-actions button {
-            flex: 1;
-            padding: 16px;
-            border: none;
-            background: transparent;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .time-btn-cancel {
-            color: #8E8E93;
-            border-right: 1px solid #3A3A3C;
-        }
-        
-        .time-btn-ok {
-            color: #D84545;
-        }
-        
-        .time-btn-cancel:active {
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        .time-btn-ok:active {
-            background: rgba(216, 69, 69, 0.1);
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <div class="logo-container">
-            <div class="logo-text">Riat SA</div>
-            <div class="logo-subtitle">DEPUIS 1946</div>
-        </div>
-        <input type="text" id="employeeName" placeholder="Nom complet" />
-    </div>
-    
-    <div class="week-nav">
-        <button onclick="changeWeek(-1)">← Préc.</button>
-        <div class="week-date" id="weekDisplay"></div>
-        <button onclick="changeWeek(1)">Suiv. →</button>
-    </div>
-    
-    <div id="daysContainer"></div>
-    
-    <div class="calendar-section">
-        <div class="calendar-header" id="calendarHeader"></div>
-        <div class="calendar-grid" id="calendarGrid"></div>
-    </div>
-    
-    <div class="weekly-total">
-        <h3>TOTAL HEURES SEMAINE</h3>
-        <div class="total" id="weeklyTotal">0h00</div>
-    </div>
-    
-    <div class="summary-footer">
-        <div class="summary-grid">
-            <div class="summary-item">
-                <div class="label">Heures</div>
-                <div class="value" id="weekHours">0h</div>
-            </div>
-            <div class="summary-item">
-                <div class="label">KM</div>
-                <div class="value" id="weekKm">0</div>
-            </div>
-            <div class="summary-item">
-                <div class="label">Repas</div>
-                <div class="value" id="weekMeals">0</div>
-            </div>
-            <div class="summary-item">
-                <div class="label">Frais</div>
-                <div class="value" id="weekExpenses">0</div>
-            </div>
-        </div>
-        <div class="action-buttons">
-            <button class="action-btn btn-save" onclick="saveData()">Sauver</button>
-            <button class="action-btn btn-export" onclick="exportToExcel()">Excel</button>
-            <button class="action-btn btn-clear" onclick="clearWeek()">Effacer</button>
-        </div>
-    </div>
-    
-    <!-- Time Picker Personnalisé -->
-    <div id="customTimePicker" class="time-picker-overlay" style="display: none;">
-        <div class="time-picker-modal">
-            <div class="time-picker-header">
-                <span id="pickerDisplay">00:00</span>
-            </div>
-            <div class="time-picker-mode">
-                <button class="mode-btn active" id="modeHour" onclick="switchMode('hour')">Heures</button>
-                <button class="mode-btn" id="modeMinute" onclick="switchMode('minute')">Minutes</button>
-            </div>
-            <div class="time-picker-body">
-                <div class="time-grid" id="hourGrid"></div>
-                <div class="time-grid" id="minuteGrid" style="display: none;"></div>
-            </div>
-            <div class="time-picker-actions">
-                <button class="time-btn-cancel" onclick="closeTimePicker()">Annuler</button>
-                <button class="time-btn-ok" onclick="confirmTime()">OK</button>
-            </div>
-        </div>
-    </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    
-    <script>
-        const daysOfWeek = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
-        const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-        const dayLabels = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
-        
-        let currentWeekStart = new Date();
-        currentWeekStart.setDate(currentWeekStart.getDate() - currentWeekStart.getDay() + 1); // Lundi
-        
-        let currentTimeInput = null;
-        let selectedHour = 0;
-        let selectedMinute = 0;
-        let currentMode = 'hour';
-        
-        function openCustomTimePicker(input) {
-            currentTimeInput = input;
-            const currentValue = input.value;
-            
-            if (currentValue && currentValue !== '--:--') {
-                const [h, m] = currentValue.split(':');
-                selectedHour = parseInt(h);
-                selectedMinute = parseInt(m);
-            } else {
-                const now = new Date();
-                selectedHour = now.getHours();
-                selectedMinute = Math.round(now.getMinutes() / 5) * 5;
-                if (selectedMinute >= 60) selectedMinute = 55;
-            }
-            
-            initPicker();
-            updateTimeDisplay();
-            document.getElementById('customTimePicker').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function initPicker() {
-            const hourGrid = document.getElementById('hourGrid');
-            const minuteGrid = document.getElementById('minuteGrid');
-            
-            hourGrid.innerHTML = '';
-            minuteGrid.innerHTML = '';
-            
-            // Grille heures (0-23)
-            for (let i = 0; i < 24; i++) {
-                const btn = document.createElement('div');
-                btn.className = 'time-number' + (i === selectedHour ? ' selected' : '');
-                btn.textContent = String(i).padStart(2, '0');
-                btn.onclick = () => selectHour(i);
-                hourGrid.appendChild(btn);
-            }
-            
-            // Grille minutes (0, 5, 10... 55)
-            for (let i = 0; i < 60; i += 5) {
-                const btn = document.createElement('div');
-                btn.className = 'time-number' + (i === selectedMinute ? ' selected' : '');
-                btn.textContent = String(i).padStart(2, '0');
-                btn.onclick = () => selectMinute(i);
-                minuteGrid.appendChild(btn);
-            }
-            
-            // Afficher heures par défaut
-            switchMode('hour');
-        }
-        
-        function switchMode(mode) {
-            currentMode = mode;
-            document.getElementById('modeHour').classList.toggle('active', mode === 'hour');
-            document.getElementById('modeMinute').classList.toggle('active', mode === 'minute');
-            document.getElementById('hourGrid').style.display = mode === 'hour' ? 'grid' : 'none';
-            document.getElementById('minuteGrid').style.display = mode === 'minute' ? 'grid' : 'none';
-        }
-        
-        function selectHour(h) {
-            selectedHour = h;
-            updateTimeDisplay();
-            
-            // Mettre à jour visuellement
-            document.querySelectorAll('#hourGrid .time-number').forEach((btn, i) => {
-                btn.classList.toggle('selected', i === h);
-            });
-            
-            // Passer aux minutes automatiquement
-            setTimeout(() => switchMode('minute'), 200);
-        }
-        
-        function selectMinute(m) {
-            selectedMinute = m;
-            updateTimeDisplay();
-            
-            // Mettre à jour visuellement
-            document.querySelectorAll('#minuteGrid .time-number').forEach((btn, i) => {
-                btn.classList.toggle('selected', i === (m / 5));
-            });
-        }
-        
-        function updateTimeDisplay() {
-            document.getElementById('pickerDisplay').textContent = 
-                `${String(selectedHour).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')}`;
-        }
-        
-        function closeTimePicker() {
-            document.getElementById('customTimePicker').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            currentTimeInput = null;
-        }
-        
-        function confirmTime() {
-            if (currentTimeInput) {
-                const timeValue = `${String(selectedHour).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')}`;
-                currentTimeInput.value = timeValue;
-                
-                const match = currentTimeInput.id.match(/^(start|end)_(\d+)_/);
-                if (match) {
-                    const dayIndex = parseInt(match[2]);
-                    calculateDayHours(dayIndex);
-                    saveAllData();
-                }
-            }
-            closeTimePicker();
-        }
-        
-        function copyMorningClient(dayIndex) {
-            const morningClient = document.getElementById(`client_${dayIndex}_am`)?.value || '';
-            if (document.getElementById(`client_${dayIndex}_pm`)) {
-                document.getElementById(`client_${dayIndex}_pm`).value = morningClient;
-            }
-            saveAllData();
-        }
-        
-        function copyMorningDesc(dayIndex) {
-            const morningDesc = document.getElementById(`desc_${dayIndex}_am`)?.value || '';
-            if (document.getElementById(`desc_${dayIndex}_pm`)) {
-                document.getElementById(`desc_${dayIndex}_pm`).value = morningDesc;
-            }
-            saveAllData();
-        }
-        
-        function copyMorningLocation(dayIndex) {
-            const morningLocation = document.getElementById(`location_${dayIndex}_am`)?.value || '';
-            if (document.getElementById(`location_${dayIndex}_pm`)) {
-                document.getElementById(`location_${dayIndex}_pm`).value = morningLocation;
-            }
-            saveAllData();
-        }
-        
-        function copyMorningData(dayIndex) {
-            copyMorningClient(dayIndex);
-            copyMorningDesc(dayIndex);
-            copyMorningLocation(dayIndex);
-        }
-        
-        function addClientEntry(dayIndex, period) {
-            const periodSection = event.target.closest('.period-section');
-            if (!periodSection) return;
-            
-            // Compter le nombre de clients déjà présents dans cette période
-            const existingEntries = periodSection.querySelectorAll('.client-entry').length;
-            const clientNumber = existingEntries + 2; // +2 car le premier est déjà "Client 1" (implicite)
-            
-            // Trouver le container des clients (après le header)
-            const periodHeader = periodSection.querySelector('.period-header');
-            const hoursDisplay = periodSection.querySelector('.hours-display');
-            
-            // Créer une nouvelle entrée client
-            const newEntry = document.createElement('div');
-            newEntry.className = 'client-entry';
-            
-            const entryId = Date.now(); // ID unique basé sur timestamp
-            
-            newEntry.innerHTML = `
-                <div class="client-row">
-                    <input type="text" id="client_${dayIndex}_${period}_${entryId}" placeholder="Client ${clientNumber}" onchange="saveAllData();" />
-                    <button class="add-client-btn" style="background: #FF3B30;" onclick="this.closest('.client-entry').remove(); saveAllData(); calculateTotals();">×</button>
-                </div>
-                
-                <div class="time-inputs">
-                    <div class="time-group">
-                        <label>Début</label>
-                        <input type="text" id="start_${dayIndex}_${period}_${entryId}" readonly placeholder="--:--" onclick="openCustomTimePicker(this)" />
-                    </div>
-                    <div class="time-group">
-                        <label>Fin</label>
-                        <input type="text" id="end_${dayIndex}_${period}_${entryId}" readonly placeholder="--:--" onclick="openCustomTimePicker(this)" />
-                    </div>
-                </div>
-                
-                ${period === 'pm' ? `
-                    <div class="desc-row">
-                        <input type="text" id="desc_${dayIndex}_${period}_${entryId}" placeholder="Description" onchange="saveAllData();" />
-                        <button class="copy-btn-small" onclick="copyMorningDesc(${dayIndex})">↓</button>
-                    </div>
-                    
-                    <div class="location-row">
-                        <input type="text" id="location_${dayIndex}_${period}_${entryId}" placeholder="Lieu" onchange="saveAllData();" />
-                        <button class="copy-btn-small" onclick="copyMorningLocation(${dayIndex})">↓</button>
-                    </div>
-                ` : `
-                    <input type="text" id="desc_${dayIndex}_${period}_${entryId}" placeholder="Description" onchange="saveAllData();" />
-                    <input type="text" id="location_${dayIndex}_${period}_${entryId}" placeholder="Lieu" onchange="saveAllData();" />
-                `}
-                
-                <div class="hours-display" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);" id="hours_${dayIndex}_${period}_${entryId}">0h00</div>
-            `;
-            
-            // Insérer avant le hours-display principal
-            hoursDisplay.parentNode.insertBefore(newEntry, hoursDisplay);
-        }
-        
-        function getWeekKey() {
-            return `week_${currentWeekStart.toISOString().split('T')[0]}`;
-        }
-        
-        function formatDate(date) {
-            const d = new Date(date);
-            return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}`;
-        }
-        
-        function formatDateFull(date) {
-            const d = new Date(date);
-            const year = String(d.getFullYear()).slice(-2);
-            return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${year}`;
-        }
-        
-        function changeWeek(direction) {
-            saveAllData();
-            currentWeekStart.setDate(currentWeekStart.getDate() + (direction * 7));
-            loadWeekData();
-            renderWeek();
-        }
-        
-        function renderWeek() {
-            const container = document.getElementById('daysContainer');
-            container.innerHTML = '';
-            
-            const endDate = new Date(currentWeekStart);
-            endDate.setDate(endDate.getDate() + 5); // 6 jours (sans dimanche)
-            
-            document.getElementById('weekDisplay').textContent = 
-                `${formatDate(currentWeekStart)} - ${formatDate(endDate)}`;
-            
-            // Lundi à Samedi (6 jours)
-            for (let i = 0; i < 6; i++) {
-                const date = new Date(currentWeekStart);
-                date.setDate(date.getDate() + i);
-                
-                const card = document.createElement('div');
-                card.className = 'day-card';
-                card.innerHTML = `
-                    <div class="day-title">
-                        <span class="day-name">${daysOfWeek[date.getDay()]}</span>
-                        <span class="day-date">${formatDate(date)}</span>
-                    </div>
-                    
-                    <!-- MATIN -->
-                    <div class="period-section">
-                        <div class="period-header">Matin</div>
-                        
-                        <div class="client-row">
-                            <input type="text" id="client_${i}_am" placeholder="Nom du client" onchange="saveAllData();" />
-                            <button class="add-client-btn" onclick="addClientEntry(${i}, 'am')">+</button>
-                        </div>
-                        
-                        <div class="time-inputs">
-                            <div class="time-group">
-                                <label>Début</label>
-                                <input type="text" id="start_${i}_am" readonly placeholder="--:--" onclick="openCustomTimePicker(this)" />
-                            </div>
-                            <div class="time-group">
-                                <label>Fin</label>
-                                <input type="text" id="end_${i}_am" readonly placeholder="--:--" onclick="openCustomTimePicker(this)" />
-                            </div>
-                        </div>
-                        
-                        <input type="text" id="desc_${i}_am" placeholder="Description" onchange="saveAllData();" />
-                        <input type="text" id="location_${i}_am" placeholder="Lieu" onchange="saveAllData();" />
-                        
-                        <div class="hours-display" id="hours_${i}_am">0h00</div>
-                    </div>
-                    
-                    <!-- APRÈS-MIDI -->
-                    <div class="period-section">
-                        <div class="period-header">Après-midi</div>
-                        
-                        <div class="client-row">
-                            <input type="text" id="client_${i}_pm" placeholder="Nom du client" onchange="saveAllData();" />
-                            <button class="copy-btn-small" onclick="copyMorningClient(${i})">↓</button>
-                            <button class="add-client-btn" onclick="addClientEntry(${i}, 'pm')">+</button>
-                        </div>
-                        
-                        <div class="time-inputs">
-                            <div class="time-group">
-                                <label>Début</label>
-                                <input type="text" id="start_${i}_pm" readonly placeholder="--:--" onclick="openCustomTimePicker(this)" />
-                            </div>
-                            <div class="time-group">
-                                <label>Fin</label>
-                                <input type="text" id="end_${i}_pm" readonly placeholder="--:--" onclick="openCustomTimePicker(this)" />
-                            </div>
-                        </div>
-                        
-                        <div class="desc-row">
-                            <input type="text" id="desc_${i}_pm" placeholder="Description" onchange="saveAllData();" />
-                            <button class="copy-btn-small" onclick="copyMorningDesc(${i})">↓</button>
-                        </div>
-                        
-                        <div class="location-row">
-                            <input type="text" id="location_${i}_pm" placeholder="Lieu" onchange="saveAllData();" />
-                            <button class="copy-btn-small" onclick="copyMorningLocation(${i})">↓</button>
-                        </div>
-                        
-                        <div class="hours-display" id="hours_${i}_pm">0h00</div>
-                    </div>
-                    
-                    <!-- KILOMÈTRES -->
-                    <div class="expenses-section" style="border-top: none; padding-top: 0;">
-                        <div class="expenses-header">
-                            Kilomètres de la journée
-                        </div>
-                        <div class="expense-item">
-                            <input type="text" placeholder="Kilomètres parcourus" disabled style="background: #F0F0F0; color: #8E8E93;" />
-                            <input type="number" id="km_${i}" placeholder="0" step="1" onchange="saveAllData(); calculateTotals();" />
-                            <div></div>
-                        </div>
-                    </div>
-                    
-                    <!-- FRAIS -->
-                    <div class="expenses-section">
-                        <div class="expenses-header">
-                            Frais (avec quittance)
-                            <button class="add-expense-btn" onclick="addExpense(${i})">+</button>
-                        </div>
-                        <div id="expenses_${i}">
-                            <div class="expense-item">
-                                <input type="text" placeholder="Description" disabled style="background: #F0F0F0; color: #8E8E93;" />
-                                <input type="number" placeholder="0.00" disabled style="background: #F0F0F0; color: #8E8E93;" />
-                                <div></div>
-                            </div>
-                        </div>
-                        
-                        <div class="meal-checkbox">
-                            <input type="checkbox" id="meal_${i}" onchange="saveAllData(); calculateTotals();" />
-                            <label for="meal_${i}">Repas remboursé</label>
-                        </div>
-                    </div>
-                `;
-                
-                container.appendChild(card);
-            }
-            
-            loadWeekData();
-            calculateTotals();
-            renderCalendar();
-        }
-        
-        function calculateDayHours(dayIndex) {
-            ['am', 'pm'].forEach(period => {
-                // Calculer l'entrée principale
-                const start = document.getElementById(`start_${dayIndex}_${period}`)?.value;
-                const end = document.getElementById(`end_${dayIndex}_${period}`)?.value;
-                
-                if (start && end && start !== '--:--' && end !== '--:--') {
-                    const [startH, startM] = start.split(':').map(Number);
-                    const [endH, endM] = end.split(':').map(Number);
-                    let minutes = (endH * 60 + endM) - (startH * 60 + startM);
-                    if (minutes < 0) minutes += 24 * 60;
-                    
-                    const hours = Math.floor(minutes / 60);
-                    const mins = minutes % 60;
-                    const display = document.getElementById(`hours_${dayIndex}_${period}`);
-                    if (display) {
-                        display.textContent = `${hours}h${String(mins).padStart(2, '0')}`;
-                    }
-                }
-                
-                // Calculer les entrées supplémentaires
-                document.querySelectorAll(`[id^="start_${dayIndex}_${period}_"]`).forEach(startInput => {
-                    const id = startInput.id.replace(`start_${dayIndex}_${period}_`, '');
-                    const endInput = document.getElementById(`end_${dayIndex}_${period}_${id}`);
-                    
-                    if (startInput.value && endInput?.value && 
-                        startInput.value !== '--:--' && endInput.value !== '--:--') {
-                        const [startH, startM] = startInput.value.split(':').map(Number);
-                        const [endH, endM] = endInput.value.split(':').map(Number);
-                        let minutes = (endH * 60 + endM) - (startH * 60 + startM);
-                        if (minutes < 0) minutes += 24 * 60;
-                        
-                        const hours = Math.floor(minutes / 60);
-                        const mins = minutes % 60;
-                        const display = document.getElementById(`hours_${dayIndex}_${period}_${id}`);
-                        if (display) {
-                            display.textContent = `${hours}h${String(mins).padStart(2, '0')}`;
-                        }
-                    }
-                });
-            });
-            calculateTotals();
-        }
-        
-        function calculateTotals() {
-            let totalMinutes = 0;
-            let totalKm = 0;
-            let totalMeals = 0;
-            let totalExpenses = 0;
-            
-            for (let i = 0; i < 6; i++) {
-                // Compter TOUTES les entrées time (principales + dynamiques)
-                document.querySelectorAll(`[id^="start_${i}_"]`).forEach(startInput => {
-                    const endId = startInput.id.replace('start_', 'end_');
-                    const endInput = document.getElementById(endId);
-                    
-                    if (startInput.value && endInput?.value) {
-                        const [startH, startM] = startInput.value.split(':').map(Number);
-                        const [endH, endM] = endInput.value.split(':').map(Number);
-                        let minutes = (endH * 60 + endM) - (startH * 60 + startM);
-                        if (minutes < 0) minutes += 24 * 60;
-                        totalMinutes += minutes;
-                    }
-                });
-                
-                const km = parseFloat(document.getElementById(`km_${i}`)?.value) || 0;
-                totalKm += km;
-                
-                if (document.getElementById(`meal_${i}`)?.checked) totalMeals++;
-                
-                // Compter les frais
-                const expensesDiv = document.getElementById(`expenses_${i}`);
-                if (expensesDiv) {
-                    expensesDiv.querySelectorAll('input[type="number"]:not([disabled])').forEach(input => {
-                        totalExpenses += parseFloat(input.value) || 0;
-                    });
-                }
-            }
-            
-            const hours = Math.floor(totalMinutes / 60);
-            const mins = totalMinutes % 60;
-            document.getElementById('weeklyTotal').textContent = `${hours}h${String(mins).padStart(2, '0')}`;
-            document.getElementById('weekHours').textContent = `${hours}h${String(mins).padStart(2, '0')}`;
-            document.getElementById('weekKm').textContent = Math.round(totalKm);
-            document.getElementById('weekMeals').textContent = totalMeals;
-            document.getElementById('weekExpenses').textContent = totalExpenses.toFixed(0);
-        }
-        
-        let expenseCounts = [0,0,0,0,0,0];
-        
-        function addExpense(dayIndex) {
-            const container = document.getElementById(`expenses_${dayIndex}`);
-            const expenseId = expenseCounts[dayIndex]++;
-            
-            // Supprimer le message disabled si c'est le premier
-            if (container.querySelector('input[disabled]')) {
-                container.innerHTML = '';
-            }
-            
-            const expenseDiv = document.createElement('div');
-            expenseDiv.className = 'expense-item';
-            expenseDiv.innerHTML = `
-                <input type="text" id="expense_desc_${dayIndex}_${expenseId}" placeholder="Description" onchange="saveAllData();" />
-                <input type="number" id="expense_amount_${dayIndex}_${expenseId}" placeholder="0.00" step="0.05" onchange="saveAllData(); calculateTotals();" />
-                <button class="remove-expense-btn" onclick="this.parentElement.remove(); calculateTotals(); saveAllData();">×</button>
-            `;
-            container.appendChild(expenseDiv);
-        }
-        
-        function saveAllData() {
-            const data = { days: [] };
-            
-            for (let i = 0; i < 6; i++) {
-                const dayData = {
-                    am: {
-                        client: document.getElementById(`client_${i}_am`)?.value || '',
-                        start: document.getElementById(`start_${i}_am`)?.value || '',
-                        end: document.getElementById(`end_${i}_am`)?.value || '',
-                        desc: document.getElementById(`desc_${i}_am`)?.value || '',
-                        location: document.getElementById(`location_${i}_am`)?.value || ''
-                    },
-                    pm: {
-                        client: document.getElementById(`client_${i}_pm`)?.value || '',
-                        start: document.getElementById(`start_${i}_pm`)?.value || '',
-                        end: document.getElementById(`end_${i}_pm`)?.value || '',
-                        desc: document.getElementById(`desc_${i}_pm`)?.value || '',
-                        location: document.getElementById(`location_${i}_pm`)?.value || ''
-                    },
-                    km: document.getElementById(`km_${i}`)?.value || '',
-                    meal: document.getElementById(`meal_${i}`)?.checked || false,
-                    expenses: []
-                };
-                
-                // Sauver les frais
-                const expensesDiv = document.getElementById(`expenses_${i}`);
-                if (expensesDiv) {
-                    expensesDiv.querySelectorAll('.expense-item').forEach(item => {
-                        const desc = item.querySelector('input[type="text"]')?.value;
-                        const amount = item.querySelector('input[type="number"]')?.value;
-                        if (desc || amount) {
-                            dayData.expenses.push({ desc, amount });
-                        }
-                    });
-                }
-                
-                data.days.push(dayData);
-            }
-            
-            localStorage.setItem(getWeekKey(), JSON.stringify(data));
-            localStorage.setItem('employeeName', document.getElementById('employeeName').value);
-        }
-        
-        function loadWeekData() {
-            const saved = localStorage.getItem(getWeekKey());
-            if (saved) {
-                const data = JSON.parse(saved);
-                
-                for (let i = 0; i < 6; i++) {
-                    const day = data.days[i] || {};
-                    
-                    ['am', 'pm'].forEach(period => {
-                        const p = day[period] || {};
-                        if (document.getElementById(`client_${i}_${period}`)) document.getElementById(`client_${i}_${period}`).value = p.client || '';
-                        if (document.getElementById(`start_${i}_${period}`)) document.getElementById(`start_${i}_${period}`).value = p.start || '';
-                        if (document.getElementById(`end_${i}_${period}`)) document.getElementById(`end_${i}_${period}`).value = p.end || '';
-                        if (document.getElementById(`desc_${i}_${period}`)) document.getElementById(`desc_${i}_${period}`).value = p.desc || '';
-                        if (document.getElementById(`location_${i}_${period}`)) document.getElementById(`location_${i}_${period}`).value = p.location || '';
-                    });
-                    
-                    if (document.getElementById(`km_${i}`)) document.getElementById(`km_${i}`).value = day.km || '';
-                    if (document.getElementById(`meal_${i}`)) document.getElementById(`meal_${i}`).checked = day.meal || false;
-                    
-                    // Charger les frais
-                    if (day.expenses && day.expenses.length > 0) {
-                        const container = document.getElementById(`expenses_${i}`);
-                        container.innerHTML = '';
-                        day.expenses.forEach((expense, idx) => {
-                            const expenseDiv = document.createElement('div');
-                            expenseDiv.className = 'expense-item';
-                            expenseDiv.innerHTML = `
-                                <input type="text" value="${expense.desc || ''}" placeholder="Description" onchange="saveAllData();" />
-                                <input type="number" value="${expense.amount || ''}" placeholder="0.00" step="0.05" onchange="saveAllData(); calculateTotals();" />
-                                <button class="remove-expense-btn" onclick="this.parentElement.remove(); calculateTotals(); saveAllData();">×</button>
-                            `;
-                            container.appendChild(expenseDiv);
-                            expenseCounts[i]++;
-                        });
-                    }
-                    
-                    calculateDayHours(i);
-                }
-            }
-            
-            const savedName = localStorage.getItem('employeeName');
-            if (savedName) document.getElementById('employeeName').value = savedName;
-        }
-        
-        function saveData() {
-            saveAllData();
-            const btn = event.target;
-            const originalText = btn.textContent;
-            btn.textContent = '✓';
-            setTimeout(() => { btn.textContent = originalText; }, 1500);
-        }
-        
-        function clearWeek() {
-            if (confirm('Effacer toutes les données de cette semaine ?')) {
-                localStorage.removeItem(getWeekKey());
-                renderWeek();
-            }
-        }
-        
-        
-        function renderCalendar() {
-            const today = new Date();
-            const currentMonth = currentWeekStart.getMonth();
-            const currentYear = currentWeekStart.getFullYear();
-            
-            document.getElementById('calendarHeader').textContent = `${monthNames[currentMonth]} ${currentYear}`;
-            
-            const firstDay = new Date(currentYear, currentMonth, 1);
-            const lastDay = new Date(currentYear, currentMonth + 1, 0);
-            const startDay = firstDay.getDay();
-            
-            // Collecter les jours avec heures
-            const daysWithHours = new Set();
-            Object.keys(localStorage).forEach(key => {
-                if (key.startsWith('week_')) {
-                    const weekData = JSON.parse(localStorage.getItem(key));
-                    if (weekData && weekData.days) {
-                        const weekDate = new Date(key.replace('week_', ''));
-                        weekData.days.forEach((day, i) => {
-                            const dayDate = new Date(weekDate);
-                            dayDate.setDate(dayDate.getDate() + i);
-                            
-                            if (dayDate.getMonth() === currentMonth && dayDate.getFullYear() === currentYear) {
-                                let hasHours = false;
-                                ['am', 'pm'].forEach(period => {
-                                    if (day[period] && (day[period].start || day[period].end)) {
-                                        hasHours = true;
-                                    }
-                                });
-                                if (hasHours) {
-                                    daysWithHours.add(dayDate.getDate());
-                                }
-                            }
-                        });
-                    }
-                }
-            });
-            
-            const grid = document.getElementById('calendarGrid');
-            grid.innerHTML = '';
-            
-            // Labels des jours
-            dayLabels.forEach(label => {
-                const dayLabel = document.createElement('div');
-                dayLabel.className = 'calendar-day-label';
-                dayLabel.textContent = label;
-                grid.appendChild(dayLabel);
-            });
-            
-            // Jours du mois précédent
-            const prevMonthLastDay = new Date(currentYear, currentMonth, 0).getDate();
-            for (let i = startDay - 1; i >= 0; i--) {
-                const day = document.createElement('div');
-                day.className = 'calendar-day other-month';
-                day.textContent = prevMonthLastDay - i;
-                grid.appendChild(day);
-            }
-            
-            // Jours du mois actuel
-            for (let i = 1; i <= lastDay.getDate(); i++) {
-                const day = document.createElement('div');
-                day.className = 'calendar-day';
-                day.textContent = i;
-                
-                const dayDate = new Date(currentYear, currentMonth, i);
-                if (dayDate.toDateString() === today.toDateString()) {
-                    day.classList.add('today');
-                }
-                if (daysWithHours.has(i)) {
-                    day.classList.add('has-hours');
-                }
-                
-                // Navigation au clic
-                day.onclick = () => {
-                    const clickedDate = new Date(currentYear, currentMonth, i);
-                    // Trouver le lundi de cette semaine
-                    const dayOfWeek = clickedDate.getDay();
-                    const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-                    currentWeekStart = new Date(clickedDate);
-                    currentWeekStart.setDate(clickedDate.getDate() + mondayOffset);
-                    
-                    loadWeekData();
-                    renderWeek();
-                    
-                    // Scroller vers le jour cliqué
-                    setTimeout(() => {
-                        const dayCards = document.querySelectorAll('.day-card');
-                        const targetDayIndex = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
-                        if (dayCards[targetDayIndex]) {
-                            dayCards[targetDayIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }, 100);
-                };
-                
-                grid.appendChild(day);
-            }
-            
-            // Jours du mois suivant
-            const remainingDays = 7 - (grid.children.length - 7) % 7;
-            if (remainingDays < 7) {
-                for (let i = 1; i <= remainingDays; i++) {
-                    const day = document.createElement('div');
-                    day.className = 'calendar-day other-month';
-                    day.textContent = i;
-                    grid.appendChild(day);
-                }
-            }
-        }
-        
-        function exportToExcel() {
-            const name = document.getElementById('employeeName').value || 'Employé';
-            
-            const wb = XLSX.utils.book_new();
-            const data = [];
-            
-            // EN-TÊTE
-            data.push(['FEUILLE HEBDOMADAIRE - RIAT SA']);
-            data.push([]);
-            data.push(['Employé', name]);
-            data.push(['Semaine', document.getElementById('weekDisplay').textContent]);
-            data.push(['Date export', new Date().toLocaleDateString('fr-CH')]);
-            data.push([]);
-            
-            // COLONNES
-            data.push(['DATE', 'JOUR', 'PÉRIODE', 'CLIENT', 'DÉBUT', 'FIN', 'HEURES', 'DESCRIPTION', 'LIEU', 'KM', 'REPAS']);
-            
-            // DONNÉES PAR JOUR
-            for (let i = 0; i < 6; i++) {
-                const date = new Date(currentWeekStart);
-                date.setDate(date.getDate() + i);
-                const km = document.getElementById(`km_${i}`)?.value || '';
-                const meal = document.getElementById(`meal_${i}`)?.checked;
-                
-                let dayHasData = false;
-                
-                ['am', 'pm'].forEach(period => {
-                    const start = document.getElementById(`start_${i}_${period}`)?.value;
-                    const end = document.getElementById(`end_${i}_${period}`)?.value;
-                    const client = document.getElementById(`client_${i}_${period}`)?.value;
-                    
-                    if ((start && start !== '--:--') || (end && end !== '--:--') || client) {
-                        let minutes = 0;
-                        if (start && start !== '--:--' && end && end !== '--:--') {
-                            const [startH, startM] = start.split(':').map(Number);
-                            const [endH, endM] = end.split(':').map(Number);
-                            minutes = (endH * 60 + endM) - (startH * 60 + startM);
-                            if (minutes < 0) minutes += 24 * 60;
-                        }
-                        const hours = Math.floor(minutes / 60);
-                        const mins = minutes % 60;
-                        
-                        data.push([
-                            formatDateFull(date),
-                            daysOfWeek[date.getDay()],
-                            period === 'am' ? 'MATIN' : 'APRÈS-MIDI',
-                            client || '',
-                            start === '--:--' ? '' : start,
-                            end === '--:--' ? '' : end,
-                            minutes > 0 ? `${hours}h${String(mins).padStart(2, '0')}` : '',
-                            document.getElementById(`desc_${i}_${period}`)?.value || '',
-                            document.getElementById(`location_${i}_${period}`)?.value || '',
-                            !dayHasData ? km : '',
-                            !dayHasData && period === 'pm' && meal ? 'Oui' : ''
-                        ]);
-                        dayHasData = true;
-                    }
-                });
-                
-                // Ajouter les frais du jour
-                const expensesDiv = document.getElementById(`expenses_${i}`);
-                if (expensesDiv) {
-                    expensesDiv.querySelectorAll('.expense-item').forEach(item => {
-                        const desc = item.querySelector('input[type="text"]')?.value;
-                        const amount = item.querySelector('input[type="number"]')?.value;
-                        if (desc || amount) {
-                            data.push([
-                                formatDateFull(date),
-                                daysOfWeek[date.getDay()],
-                                'FRAIS',
-                                desc || '',
-                                '',
-                                '',
-                                '',
-                                '',
-                                '',
-                                '',
-                                amount ? `${amount} CHF` : ''
-                            ]);
-                        }
-                    });
-                }
-            }
-            
-            data.push([]);
-            data.push(['TOTAUX SEMAINE']);
-            data.push(['Total heures', document.getElementById('weekHours').textContent]);
-            data.push(['Total kilomètres', document.getElementById('weekKm').textContent + ' km']);
-            data.push(['Total repas', document.getElementById('weekMeals').textContent]);
-            data.push(['Total frais', document.getElementById('weekExpenses').textContent + ' CHF']);
-            
-            const ws = XLSX.utils.aoa_to_sheet(data);
-            
-            // Largeurs de colonnes optimisées
-            ws['!cols'] = [
-                {wch: 12},  // Date
-                {wch: 10},  // Jour
-                {wch: 12},  // Période
-                {wch: 20},  // Client
-                {wch: 8},   // Début
-                {wch: 8},   // Fin
-                {wch: 8},   // Heures
-                {wch: 30},  // Description
-                {wch: 20},  // Lieu
-                {wch: 6},   // KM
-                {wch: 8}    // Repas
-            ];
-            
-            XLSX.utils.book_append_sheet(wb, ws, 'Feuille Heures');
-            XLSX.writeFile(wb, `Riat_SA_${name.replace(/\s/g, '_')}_${formatDateFull(currentWeekStart).replace(/\//g, '-')}.xlsx`);
-            
-            const btn = event.target;
-            const originalText = btn.textContent;
-            btn.textContent = '✓';
-            setTimeout(() => { btn.textContent = originalText; }, 1500);
-        }
-        
-        // Init
-        renderWeek();
-        
-        // Scroll pour cacher/afficher le footer
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const footer = document.querySelector('.summary-footer');
-            
-            if (scrollTop > lastScrollTop && scrollTop > 60) {
-                footer.classList.add('hidden');
-            } else {
-                footer.classList.remove('hidden');
-            }
-            
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        }, { passive: true });
-        
-        setInterval(saveAllData, 30000);
-        window.addEventListener('beforeunload', saveAllData);
-    </script>
-</body>
-</html>
+            justify-content: ce
