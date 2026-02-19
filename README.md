@@ -9,4 +9,3 @@ Application web mobile pour la gestion des heures hebdomadaires.
 - Export Excel (.xlsx)
 - Sauvegarde automatique locale
 - 100% offline après premier chargement
-- 
